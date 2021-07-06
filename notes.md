@@ -1,4 +1,4 @@
-sandipbgt.com/theastrologer/api  /sunsigns
+'sandipbgt.com/theastrologer/api/sunsigns'
 
 first screen:
 -- useState(sunsign), useEffect(api call,[])
