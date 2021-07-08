@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+import SelectSign from './components/SelectSign';
+import SelectTimeFrame from './components/SelectTimeframe';
+import Reading from './components/Reading';
 import './App.css';
 
 function App() {
@@ -12,6 +14,13 @@ function App() {
   }, [])
 
   const [signs,setSigns]=useState([]);
+  const [selectedSign, setSelectedSign] = useState(null);
+  const [selectedTime, setSelectedTime] = useState(null);
+
+  const reset = () => {
+    setSelectedSign(null);
+    setSelectedTime(null);
+  }
 
     return (
       <div className="App">
@@ -19,20 +28,11 @@ function App() {
           <h1 className="p-5">Horoscope App</h1>
           <hr />
         </header>
-        <section id="pathToHoroscope" className="container p-5">
-          <div className="row d-flex justify-content-center">
 
-            {signs.map((sign, i)=>{
-              return(
-                <button className="btn btn-primary col-3 m-3" key={i}>
-                  {sign}
-                </button>              
-              );
-            })} 
-          
-          </div>
-        </section>
-        <section id="backToHome"></section>
+        {!selectedSign && (<SelectSign signs={signs} setSigns={setSigns} setSelectedSign={setSelectedSign} reset={reset}/>)}
+        {selectedSign && !selectedTime && (<SelectTimeFrame setSelectedTime={setSelectedTime} reset={reset}/>)}
+        {selectedSign && selectedTime && (<Reading selectedSign={selectedSign} selectedTime={selectedTime} setSelectedSign={setSelectedSign} setSelectedTime={setSelectedTime} reset={reset}/>)}
+        
       </div>
     );
 }
