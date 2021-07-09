@@ -16,9 +16,9 @@ const Reading = ({selectedSign, selectedTime, setSelectedSign, setSelectedTime, 
     
       }, [setSelectedSign, setSelectedTime])
 
-    const [horoscope, setHoroscope] = useState(null); 
+    const [horoscope, setHoroscope] = useState([]); 
 
-    console.log(selectedSign);
+      console.log(selectedSign);
       console.log(selectedTime);
       console.log(horoscope);
 
@@ -29,7 +29,7 @@ const Reading = ({selectedSign, selectedTime, setSelectedSign, setSelectedTime, 
                     <h1 className="">{horoscope}</h1>
                 </div>
             </section>
-            <section id="backToHome" class="d-flex justify-content-center align-items-center">
+            <section id="backToHome" className="d-flex justify-content-center align-items-center">
                 <button className="btn btn-warning col-3" onClick={reset}>Restart</button>
             </section>
         </>

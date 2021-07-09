@@ -30,7 +30,9 @@ function App() {
         </header>
 
         {!selectedSign && (<SelectSign signs={signs} setSigns={setSigns} setSelectedSign={setSelectedSign} reset={reset}/>)}
+
         {selectedSign && !selectedTime && (<SelectTimeFrame setSelectedTime={setSelectedTime} reset={reset}/>)}
+        
         {selectedSign && selectedTime && (<Reading selectedSign={selectedSign} selectedTime={selectedTime} setSelectedSign={setSelectedSign} setSelectedTime={setSelectedTime} reset={reset}/>)}
         
       </div>
